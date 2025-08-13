@@ -6,7 +6,7 @@ import * as amplitude from '@amplitude/analytics-browser';
 import GryffindorEmblem from '/public/assets/img/Gryffindor_Emblem.webp';
 import RavenclawEmblem from '/public/assets/img/Ravenclaw_Emblem.webp';
 import HufflepuffEmblem from '/public/assets/img/Gryffindor_Emblem.webp';
-import SlytherinEmblem from '/public/assets/img/Gryffindor_Emblem.webp';
+import SlytherinEmblem from '/public/assets/img/HufflePuff_Emblem.webp';
 
 import GryffindorFounder from '/public/assets/img/Godric Gryffindor.webp';
 import RavenclawFounder from '/public/assets/img/Rowena Ravenclaw.webp';
