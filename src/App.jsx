@@ -41,7 +41,7 @@ const AnalyticsWrapper = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-hp-amp">
       <div className="min-h-screen bg-gray-950 from-neutral-300 text-neutral-300 font-sans">
         <AnalyticsWrapper />
         <Routes>
