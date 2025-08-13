@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+* {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Cormorant Garamond', serif;
+}
