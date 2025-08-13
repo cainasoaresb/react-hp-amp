@@ -69,13 +69,13 @@ const HouseDetailPage = () => {
   const tabsContent = {
     emblem: (
       <div className="space-y-4 align-middle">
-        <img className="mx-auto h-fit w-xl object-cover" src={`/src/assets/img/${house.name}_Emblem.webp`} alt={`${house.name} Emblem`} />
+        <img className="mx-auto h-fit w-xl object-cover" src={`/public/assets/img/${house.name}_Emblem.webp`} alt={`${house.name} Emblem`} />
       </div>
     ),
     founder: (
       <div className="space-y-4 align-middle">
         <p className="text-center self-center block"><span className="text-5xl text-center self-center align-center font-bold">{house.founder}</span></p>
-        <img className='mx-auto h-fit w-xl rounded-lg object-cover' src={`/src/assets/img/${house.founder}.webp`} alt={`${house.founder} of ${house.name}`} />
+        <img className='mx-auto h-fit w-xl rounded-lg object-cover' src={`/public/assets/img/${house.founder}.webp`} alt={`${house.founder} of ${house.name}`} />
       </div>
     ),
     info: (
