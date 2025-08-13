@@ -4,8 +4,8 @@ import * as amplitude from '@amplitude/analytics-browser';
 
 import GryffindorAltEmblem from '/public/assets/img/Gryffindor.webp';
 import RavenclawAltEmblem from '/public/assets/img/Ravenclaw.webp';
-import HufflepuffAltEmblem from '/public/assets/img/Gryffindor.webp';
-import SlytherinAltEmblem from '/public/assets/img/Gryffindor.webp';
+import HufflepuffAltEmblem from '/public/assets/img/Hufflepuff.webp';
+import SlytherinAltEmblem from '/public/assets/img/Slytherin.webp';
 
 const HouseCard = ({ house }) => {
   const { name, id } = house;
