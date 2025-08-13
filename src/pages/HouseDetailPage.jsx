@@ -3,6 +3,30 @@ import { useParams, Link } from 'react-router-dom';
 import { getHouseById } from '../services/api';
 import * as amplitude from '@amplitude/analytics-browser';
 
+import GryffindorEmblem from '/public/assets/img/Gryffindor_Emblem.webp';
+import RavenclawEmblem from '/public/assets/img/Ravenclaw_Emblem.webp';
+import HufflepuffEmblem from '/public/assets/img/Gryffindor_Emblem.webp';
+import SlytherinEmblem from '/public/assets/img/Gryffindor_Emblem.webp';
+
+import GryffindorFounder from '/public/assets/img/Godric Gryffindor.webp';
+import RavenclawFounder from '/public/assets/img/Rowena Ravenclaw.webp';
+import HufflepuffFounder from '/public/assets/img/Helga Hufflepuff.webp';
+import SlytherinFounder from '/public/assets/img/Salazar Slytherin.webp';
+
+const houseEmblems = {
+  'Gryffindor': GryffindorEmblem,
+  'Ravenclaw': RavenclawEmblem,
+  'Hufflepuff': HufflepuffEmblem,
+  'Slytherin': SlytherinEmblem,
+};
+
+const houseFounders = {
+  'Godric Gryffindor': GryffindorFounder,
+  'Rowena Ravenclaw': RavenclawFounder,
+  'Helga Hufflepuff': HufflepuffFounder,
+  'Salazar Slytherin': SlytherinFounder,
+};
+
 
 const HouseDetailPage = () => {
   const { id } = useParams();
@@ -47,11 +71,14 @@ const HouseDetailPage = () => {
     pageTitle = "House Not Found | Hogwarts Houses";
   }
 
+  const emblemSrc = house ? houseEmblems[house.name] : null;
+  const founderSrc = house ? houseFounders[house.founder] : null;
+
   if (loading) {
     return (
-        <div className="flex justify-center items-center h-screen">
-          <p className="text-xl font-bold text-gray-700">Loading house details...</p>
-        </div>
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-xl font-bold text-gray-700">Loading house details...</p>
+      </div>
     );
   }
 
@@ -69,13 +96,13 @@ const HouseDetailPage = () => {
   const tabsContent = {
     emblem: (
       <div className="space-y-4 align-middle">
-        <img className="mx-auto h-fit w-xl object-cover" src={`/assets/img/${house.name}_Emblem.webp`} alt={`${house.name} Emblem`} />
+        <img className="mx-auto h-fit w-xl object-cover" src={emblemSrc} alt={`${house.name} Emblem`} />
       </div>
     ),
     founder: (
       <div className="space-y-4 align-middle">
         <p className="text-center self-center block"><span className="text-5xl text-center self-center align-center font-bold">{house.founder}</span></p>
-        <img className='mx-auto h-fit w-xl rounded-lg object-cover' src={`/assets/img/${house.founder}.webp`} alt={`${house.founder} of ${house.name}`} />
+        <img className='mx-auto h-fit w-xl rounded-lg object-cover' src={founderSrc} alt={`${house.founder} of ${house.name}`} />
       </div>
     ),
     info: (
