@@ -1,19 +1,17 @@
-// src/App.jsx
-
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import HouseDetailPage from './pages/HouseDetailPage';
+import AmplitudeTracker from './components/AmplitudeTracker';
 import './index.css';
 import * as amplitude from '@amplitude/analytics-browser';
 
-// Inicialização do Amplitude
 const AMPLITUDE_API_KEY = import.meta.env.VITE_AMPLITUDE_API_KEY;
 
 if (AMPLITUDE_API_KEY) {
   amplitude.init(AMPLITUDE_API_KEY, {
     autocapture: {
-      pageViews: true,
+      pageViews: false,
       sessions: true,
       formInteractions: true,
       fileDownloads: true,
@@ -23,30 +21,14 @@ if (AMPLITUDE_API_KEY) {
   });
 }
 
-// Componente para rastrear as rotas
-const AnalyticsWrapper = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (AMPLITUDE_API_KEY) {
-      // Envia um evento "Page View" com a rota atual
-      amplitude.track('Page View', {
-        pathname: location.pathname,
-      });
-    }
-  }, [location]);
-
-  return null;
-};
-
 const App = () => {
   return (
     <BrowserRouter basename="/react-hp-amp">
       <div className="min-h-screen bg-gray-950 from-neutral-300 text-neutral-300 font-sans">
-        <AnalyticsWrapper />
+        <AmplitudeTracker />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/houses/:id" element={<HouseDetailPage />} />
+          <Route path="/houses/:houseName" element={<HouseDetailPage />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -30,17 +30,22 @@ const HomePage = () => {
   }
 
   return (
-    <div className="container mx-auto p-8 max-w-7xl">
+    <>
       <Helmet>
         <title>Hogwarts Houses | Harry Potter</title>
       </Helmet>
-      <h1 className="text-5xl font-extrabold text-center text-white mb-6">Hogwarts Houses</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {houses.map((house) => (
-          <HouseCard key={house.id} house={house} />
-        ))}
+      <div className="container mx-auto p-8 max-w-7xl">
+        <Helmet>
+          <title>Hogwarts Houses | Harry Potter</title>
+        </Helmet>
+        <h1 className="text-5xl font-extrabold text-center text-white mb-6">Hogwarts Houses</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {houses.map((house) => (
+            <HouseCard key={house.id} house={house} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

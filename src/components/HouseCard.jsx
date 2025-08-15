@@ -11,8 +11,9 @@ const HouseCard = ({ house }) => {
   const { name, id } = house;
 
   const handleSeeMoreClick = () => {
-    amplitude.track('Click See More', {
+    amplitude.track('click', {
       house_name: name,
+      action: 'See more',
     });
   };
 
@@ -30,7 +31,7 @@ const HouseCard = ({ house }) => {
     <div className="md:flex md:shrink-0 p-6 rounded-lg flex flex-col items-center text-center m-4">
       <img className='w-full object-cover md:h-full md:w-48' src={emblemAltSrc} alt={`${name}`} />
       <h2 className="font-bold mb-4 text-white text-2xl leading-20">{name}</h2>
-      <Link to={`/houses/${id}`}>
+      <Link to={`/houses/${house.name.toLowerCase()}`}>
         <button
           className="rounded bg-violet-500 px-5 py-2 text-xl leading-7 font-bold text-white hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700"
           onClick={handleSeeMoreClick}
